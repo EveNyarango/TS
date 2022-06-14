@@ -57,6 +57,7 @@ var reverseSeq = function (n) {
     }
     return seq;
 };
+
 exports.reverseSeq = reverseSeq;
 //katar 8;https://www.codewars.com/kata/5680781b6b7c2be860000036/train/typescript
 function vowelIndices(word) {
