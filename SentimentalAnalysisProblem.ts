@@ -14,7 +14,7 @@
 let negativeWords = ['bad', 'terrible', 'awful', 'stupid', 'mad', 'angry', 'sad'];
 let count = 0;
 
-function negativeWordCount(sentence: string) : number {
+function negativeWordCount(sentence: string): number {
     let sent = sentence.toLowerCase().split(/[\s,.]+/)
     negativeWords.forEach(word => {
         sent.forEach(element => {
@@ -25,31 +25,30 @@ function negativeWordCount(sentence: string) : number {
     return count;
 }
 
-function calculatePercentage(sentence: string) : number{
+function calculatePercentage(sentence: string): number {
     let sentenceSplit = sentence.split(" ")
     let sentenceCount = 0
-    for(let i = 0; i<sentenceSplit.length;i++){
-        if(sentenceSplit[i].length >= 3){
+    for (let i = 0; i < sentenceSplit.length; i++) {
+        if (sentenceSplit[i].length >= 3) {
             sentenceCount++
-
         }
     }
-    return negativeWordCount(sentence)/sentenceCount * 100
+
+    return negativeWordCount(sentence) / sentenceCount * 100
 }
 
-function checkPercentageCriteria(sentimentalPercentage: number) : string{
-    if(sentimentalPercentage <= 5){
+function checkPercentageCriteria(sentimentalPercentage: number): string {
+    if (sentimentalPercentage <= 5) {
         return 'POSITIVE'
-    }else if(sentimentalPercentage > 5 && sentimentalPercentage < 20){
+    } else if (sentimentalPercentage > 5 && sentimentalPercentage < 20) {
         return 'NEUTRAL'
-    }else{
+    } else {
         return 'NEGATIVE'
     }
 }
 
-function sentimentalAnalysis(result: string) : string{
+function sentimentalAnalysis(result: string): string {
     return checkPercentageCriteria(calculatePercentage(result))
-
 }
 
 console.log(sentimentalAnalysis('The world is a terrible place to live in'))
